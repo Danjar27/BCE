@@ -1,6 +1,11 @@
 from menu import *
 import pandas as pd
 
+
+
+# Tests
+#--------------
+
 """
 date = setDate({
     'year': '2020',
@@ -16,7 +21,6 @@ indicators = index({
 })
 
 indicators.select('038')
-"""
 
 
 data = getBCE({
@@ -25,4 +29,7 @@ data = getBCE({
     "indicator": '040'
 })
 
-data.getHref(True)
+
+df = pd.read_excel(data.getHref())
+
+"""
