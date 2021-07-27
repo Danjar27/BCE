@@ -1,5 +1,5 @@
-from utils import *
-from lector import *
+from getBCE.utils import *
+from getBCE.lector import *
 
 main = "https://contenido.bce.fin.ec/home1/estadisticas/bolmensual/IEMensual.jsp"
 

@@ -1,5 +1,6 @@
-from menu import *
 import pandas as pd
+
+from getBCE.menu import getBCE
 
 
 
