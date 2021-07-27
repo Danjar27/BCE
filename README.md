@@ -8,7 +8,7 @@ a través de tablas de Pandas.
 
 Para comenzar a usarlo deberás escribir 
 
-from BCE.menu import *
+from getBCE.menu import *
 
 El código tiene dos vías para que puedas llegar la información de los indicadores del Banco Central. En el caso de conocer
 cuál es el número de índice de los indicadores, se puede usar **la forma rápida**, de lo contrario debería usarse la forma 
@@ -19,7 +19,7 @@ cuál es el número de índice de los indicadores, se puede usar **la forma ráp
 Dentro de BCE.menu existe la clase _getBCE_, la cual tiene un sólo parámetro, que debe ser un diccionario
 
 ```python
-from BCE.menu import *
+from getBCE.menu import *
 
 example = getBCE(dict)
 ```
