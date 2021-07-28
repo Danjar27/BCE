@@ -6,9 +6,14 @@ a través de tablas de Pandas.
 
 ## ::documentation::
 
-Para comenzar a usarlo deberás escribir 
+Para comenzar a usarlo deberás instalar el paquete (o clonar el repositorio) e importarlo de la siguiente forma
+
+```python
+
+pip install getBCE
 
 from getBCE.menu import *
+```
 
 El código tiene dos vías para que puedas llegar la información de los indicadores del Banco Central. En el caso de conocer
 cuál es el número de índice de los indicadores, se puede usar **la forma rápida**, de lo contrario debería usarse la forma 
@@ -27,7 +32,7 @@ example = getBCE(dict)
 El diccionario entregado como argumento, deberá tener las siguientes keys:
 
 ```python
-from BCE.menu import *
+from getBCE.menu import *
 
 example = getBCE({
     'year': a,
@@ -46,7 +51,7 @@ Los valores de a, b, c deben entregarse en forma de String.
 A modo de ejemplo:
 
 ```python
-from BCE.menu import *
+from getBCE.menu import *
 
 balanza_de_pagos = getBCE({
     'year': '2021',
@@ -69,7 +74,7 @@ data_frame = pd.read_excel(balanza_de_pagos.getHref())
 En el caso de no conocer los índices de los indicadores, se pueden visualizar creando objetos para las clases **setDate()** e **index()**:
 
 ```python
-from BCE.menu import *
+from getBCE.menu import *
 
 fecha = setDate({
     'year': '2020',
@@ -112,7 +117,7 @@ Finalmente, para obtener el enlace del índice seleccionado se emplea el método
 De esta manera, se integraría a pandas de la siguiente forma:
 
 ```python
-from BCE.menu import *
+from getBCE.menu import *
 
 fecha = setDate({
     'year': '2020',
