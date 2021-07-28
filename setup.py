@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'getBCE',
   packages = ['getBCE'],
-  version = '0.3',
+  version = '0.4',
   description = 'Download data from BCE (Banco Central del ecuador) webpage',
   author = 'S. Daniel Jaramillo',
   author_email = 'losteven2018@outlook.com',

@@ -6,16 +6,14 @@ main = "https://contenido.bce.fin.ec/home1/estadisticas/bolmensual/IEMensual.jsp
 class setDate:
     def __init__(self, options):
         self.options = options
-        self.parameteres = ['year','month', 'show']
+        self.parameteres = ['year','month']
         self.page = ''
         self.get_href_main()
         
     def setPage(self, page):
         self.page = page
     
-    def getPage(self):  
-        if self.options['show']:
-            print(self.page)
+    def getDate(self):  
         return str(self.page)
     
     def get_href_main(self):
@@ -52,7 +50,9 @@ class index():
         ))
         self.menu = menu_menu.getMenu()
 
-    def select(self, indicator):
+    def select(self, indicator, imprimir = False):
+        if (imprimir):
+            print(self.menu[indicator][1])
         return (self.menu[indicator][1])
         
     
