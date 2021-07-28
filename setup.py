@@ -9,5 +9,6 @@ setup(
   url = 'https://github.com//Daniejar27/BCE',
   download_url = 'https://github.com//Daniejar27/BCE',
   keywords = ['Economics', 'Banco Central', 'BCE', 'economía'],
+  install_requires=['BeautifulSoup',' requests', 'pandas'],
   classifiers = [],
 )
