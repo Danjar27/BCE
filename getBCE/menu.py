@@ -80,7 +80,7 @@ class getBCE():
             'year': self.options['year'],
             'month': self.options['month'],
             'show':False})
-        self.first = date.getPage()
+        self.first = date.getDate()
         
     def menu(self):
         menu = index({
