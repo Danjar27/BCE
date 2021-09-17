@@ -1,14 +1,17 @@
 import requests
 from bs4 import BeautifulSoup as soup
 
-class reader:
+'''Here I made some Web Scrapping from BCE page itself, so I can get links I
+want and be able to download the information'''
+
+class Reader:
     
     def __init__(self, container, find_all, tag, bool):
         self.bool = bool
         self.tag = tag
         self.find = find_all
         self.href = []
-        self.date =[]
+        self.page =[]
         
         url = requests.get(str(container))
         self.web = soup(url.content, 'lxml')
@@ -20,16 +23,13 @@ class reader:
         https = '' if self.bool else 'https://contenido.bce.fin.ec/'
 
         for any in web_scrap:
-            hiperlink = https + any[self.tag][0:]
-            self.href.append(hiperlink)
+            self.href.append(https + any[self.tag][0:])
 
         for any in web_scrap:
-            text_tag = any.text
-            self.date.append(text_tag)
+            self.page.append(any.text)
 
-
-    def getDate(self):
-        return  self.date 
+    def getPage(self):
+        return  self.page 
     
     def getHref(self):
         return  self.href 

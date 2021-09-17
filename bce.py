@@ -6,12 +6,12 @@ from getBCE.menu import getBCE
 
 # Tests
 #--------------
-
 """
+
 date = setDate({
     'year': '2020',
     'month': 'enero',
-    'show': False,
+    'show': True,
 })
 
 indicators = index({
@@ -22,7 +22,6 @@ indicators = index({
 })
 
 indicators.select('038')
-
 
 data = getBCE({
     'year': '2020',

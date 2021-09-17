@@ -10,13 +10,9 @@ class map:
         self.clean_date = []
         self.menu = {}
 
-        # ------------- AUTO INIT  methods -----------
-
         self.set_bounders(self.bounder)
         self.cleanDate()
         self.menuCreator(self.compact_date())
-
-        # --------------------------------------------------
 
     def menuCreator(self, list):
            self.menu = {item[0]: item[1:] for item in list}
@@ -34,8 +30,7 @@ class map:
             years.append(any[2])
             months.append(any[1])
 
-        self.clean_date = [(i, j)
-                            for i, j in zip(years, zip(months, self.href))]
+        self.clean_date = [(i, j) for i, j in zip(years, zip(months, self.href))]
 
     def compact_date(self):
         pre_menu = []
