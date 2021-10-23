@@ -15,7 +15,7 @@ class map:
         self.menuCreator(self.compact_date())
 
     def menuCreator(self, list):
-           self.menu = {item[0]: item[1:] for item in list}
+        self.menu = {item[0]: item[1:] for item in list}
 
     def set_bounders(self, a):
         self.date = self.date[:len(self.date)-a]

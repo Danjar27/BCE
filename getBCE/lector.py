@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup as soup
 
-'''Here I made some Web Scrapping from BCE page itself, so I can get links I
-want and be able to download the information'''
+'''Here I made some Web Scrapping from BCE page itself, so I can get all links I
+want and download the information from them'''
 
 class Reader:
     

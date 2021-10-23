@@ -34,11 +34,11 @@ El diccionario entregado como argumento, deberá tener las siguientes keys:
 ```python
 from getBCE.menu import *
 
-example = getBCE({
-    'year': a,
-    'month': b,
-    'indicator': c,
-})
+example = getBCE(
+    year: a,
+    month: b,
+    indicator: c,
+)
 ```
 Los valores de a, b, c deben entregarse en forma de String. 
 
@@ -53,11 +53,11 @@ A modo de ejemplo:
 ```python
 from getBCE.menu import *
 
-balanza_de_pagos = getBCE({
-    'year': '2021',
-    'month': 'junio',
-    'indicator': '063',
-})
+balanza_de_pagos = getBCE(
+    year: '2021',
+    month: 'junio',
+    indicator: '063',
+)
 ```
 
 para integrar la información obtenida con la libería Pandas, se emplea el método **read_excel()** y el módulo de getBCE **getHref()**
@@ -76,17 +76,17 @@ En el caso de no conocer los índices de los indicadores, se pueden visualizar c
 ```python
 from getBCE.menu import *
 
-fecha = setDate({
-    'year': '2020',
-    'month': 'enero',
-})
+fecha = setDate(
+    year= '2020',
+    month= 'enero',
+)
 
-indice = index({
-    'date': example.getDate(),
-    "head": 10,
-    'previous': 30,
-    'show': True,
-})
+indice = index(
+    date= example.getDate(),
+    head= 10,
+    previous= 30,
+    show= True,
+)
 
 indice.select('038')
 ```
@@ -99,12 +99,12 @@ Para fijar la fecha, se debe utilizar el valor que regresa la clase setDate, par
 El valor que se le asigne a **'head'** será el número de elementos que se imprimirán en consola (siempre que show sea True). En la mayoría de años el total de indicadores es 93, por lo que para ver todos se puede escribir:
 
 ```python
-indice = index({
-    'date': example.getDate(),
-    "head": 93,
-    'previous': 0,
-    'show': True,
-})
+indice = index(
+    date= example.getDate(),
+    head= 93,
+    previous= 0,
+    show= True,
+)
 ```
 aunque hay años en los que hay más o menos indicadores, por lo cual queda a discresión de cada usuario.
 
@@ -119,17 +119,17 @@ De esta manera, se integraría a pandas de la siguiente forma:
 ```python
 from getBCE.menu import *
 
-fecha = setDate({
-    'year': '2020',
-    'month': 'enero',
-})
+fecha = setDate(
+    year= '2020',
+    month= 'enero',
+)
 
-indice = index({
-    'date': example.getDate(),
-    "head": 10,
-    'previous': 30,
-    'show': False,
-})
+indice = index(
+    date= example.getDate(),
+    head= 10,
+    previous= 30,
+    show= False,
+)
 
 seleccion = indice.select('038')
 
