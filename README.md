@@ -21,15 +21,14 @@ cuál es el número de índice de los indicadores, se puede usar **la forma ráp
 
 ### Forma rápida
 
-Dentro de BCE.menu existe la clase _getBCE_, la cual tiene un sólo parámetro, que debe ser un diccionario
+Dentro de BCE.menu existe la clase _getBCE_, 
 
 ```python
 from getBCE.menu import *
 
 example = getBCE(dict)
 ```
-
-El diccionario entregado como argumento, deberá tener las siguientes keys:
+Los argumentos entregados a esta clase deberán tener la siguiente forma
 
 ```python
 from getBCE.menu import *
