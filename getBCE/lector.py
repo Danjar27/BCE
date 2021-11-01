@@ -14,7 +14,7 @@ class Reader:
         self.page =[]
         
         url = requests.get(str(container))
-        self.web = soup(url.content, 'lxml')
+        self.web = soup(url.content, "html.parser")
         self.main()
     
     def main(self):

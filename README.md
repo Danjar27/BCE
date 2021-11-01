@@ -35,9 +35,9 @@ El diccionario entregado como argumento, deberá tener las siguientes keys:
 from getBCE.menu import *
 
 example = getBCE(
-    year: a,
-    month: b,
-    indicator: c,
+    year= a:str,
+    month= b:str,
+    indicator = c:str,
 )
 ```
 Los valores de a, b, c deben entregarse en forma de String. 
