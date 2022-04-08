@@ -34,5 +34,5 @@ setuptools.setup(
     download_url='https://github.com//Daniejar27/BCE',
     keywords=['Economics', 'Banco Central', 'BCE', 'economía'],
     classifiers=[],
-    install_requires=['requests', 'pandas', 'bs4', 'urllib3']
+    install_requires=['requests', 'pandas', 'bs4', 'urllib3', 'subprocess', 'setuptools', 'os']
 )
