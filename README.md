@@ -75,16 +75,16 @@ En el caso de no conocer los índices de los indicadores, se pueden visualizar c
 ```python
 from getBCE.menu import *
 
-fecha = setDate(
-    year= '2020',
-    month= 'enero',
+fecha = SetDate(
+    year='2020',
+    month='enero',
 )
 
 indice = index(
-    date= example.getDate(),
-    head= 10,
-    previous= 30,
-    show= True,
+    date=example.getDate(),
+    head=10,
+    previous=30,
+    show=True,
 )
 
 indice.select('038')
@@ -118,16 +118,16 @@ De esta manera, se integraría a pandas de la siguiente forma:
 ```python
 from getBCE.menu import *
 
-fecha = setDate(
-    year= '2020',
-    month= 'enero',
+fecha = SetDate(
+    year='2020',
+    month='enero',
 )
 
 indice = index(
-    date= example.getDate(),
-    head= 10,
-    previous= 30,
-    show= False,
+    date=example.getDate(),
+    head=10,
+    previous=30,
+    show=False,
 )
 
 seleccion = indice.select('038')

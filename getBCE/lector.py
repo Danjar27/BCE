@@ -1,35 +1,31 @@
 import requests
-from bs4 import BeautifulSoup as soup
+import urllib3
+from bs4 import BeautifulSoup as Soup
 
-'''Here I made some Web Scrapping from BCE page itself, so I can get all links I
-want and download the information from them'''
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL:@SECLEVEL=1'
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 class Reader:
-    
-    def __init__(self, container, find_all, tag, bool):
-        self.bool = bool
-        self.tag = tag
-        self.find = find_all
-        self.href = []
-        self.page =[]
-        
-        url = requests.get(str(container))
-        self.web = soup(url.content, "html.parser")
+
+    def __init__(self, base_url: str, flag: bool) -> None:
+        self.__flag = flag
+        self.__tag = 'href' if flag else 'value'
+        self.__find = 'a' if flag else 'option'
+        self.__href = []
+        self.__page = []
+        url = requests.get(str(base_url))
+        self.web = Soup(url.content, "html.parser")
         self.main()
-    
-    def main(self):
-        
-        web_scrap = self.web.find_all(self.find, href = self.bool)
-        https = '' if self.bool else 'https://contenido.bce.fin.ec/'
 
-        for any in web_scrap:
-            self.href.append(https + any[self.tag][0:])
+    def main(self) -> None:
+        web_scrap = self.web.find_all(self.__find, href=self.__flag)
+        https = "" if self.__flag else "https://contenido.bce.fin.ec/"
+        for htmlElement in web_scrap:
+            self.__href.append(https + htmlElement[self.__tag][0:])
+        for htmlElement in web_scrap:
+            self.__page.append(htmlElement.text)
 
-        for any in web_scrap:
-            self.page.append(any.text)
-
-    def getPage(self):
-        return  self.page 
-    
-    def getHref(self):
-        return  self.href 
+    @property
+    def result(self) -> dict:
+        return {'href': self.__href, 'page': self.__page}

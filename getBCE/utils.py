@@ -1,6 +1,11 @@
 from bs4 import BeautifulSoup as soup
 
-class map:
+
+def destructure(dictionary: dict):
+    return [element[1] for element in dictionary.items()]
+
+
+class Map:
 
     def __init__(self, href, date):
         self.href = href
@@ -18,8 +23,8 @@ class map:
         self.menu = {item[0]: item[1:] for item in list}
 
     def set_bounders(self, a):
-        self.date = self.date[:len(self.date)-a]
-        self.href = self.href[:len(self.date)-a]
+        self.date = self.date[:len(self.date) - a]
+        self.href = self.href[:len(self.date) - a]
 
     def cleanDate(self):
         split_date = [any.split(' ') for any in self.date]
@@ -64,26 +69,24 @@ class page:
     def clean_date(self):
         clean_date = [str(i).replace('\r\n', '').replace('  ', ' ') for i in self.date]
         self.date = clean_date
-            
+
     def set_index(self):
         for any in range(len(self.date)):
             self.index.append('{0:03}'.format(any))
 
     def menuCreator(self):
         self.menu = {z[0]: list(z[1:]) for z in zip(self.index, self.date, self.href)}
-    
-    def zipper(self, selector):
-        return([self.menu[z][1] for z in selector])
 
-    def selector(self, head=5, p=0, show= True):
+    def zipper(self, selector):
+        return ([self.menu[z][1] for z in selector])
+
+    def selector(self, head=5, p=0, show=True):
         selector = []
         for i in (range(head)):
-            selector.append(self.index[i+p])
+            selector.append(self.index[i + p])
             if show:
-                print(self.index[i+p] + ' ' + self.date[i+p] )
+                print(self.index[i + p] + ' ' + self.date[i + p])
         return selector
-    
+
     def getMenu(self):
         return self.menu
-
-
