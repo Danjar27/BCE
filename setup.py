@@ -4,7 +4,7 @@ setup(
     name='getBCE',
     packages=['getBCE'],
     package_data={"getBCE": ["VERSION"]},
-    version="1.5.1",
+    version="1.5.2",
     description='Download data from BCE (Banco Central del ecuador) webpage',
     author='S. Daniel Jaramillo',
     author_email='losteven2018@outlook.com',
