@@ -1,32 +1,32 @@
 from getBCE.utils import *
 from getBCE.lector import *
+from operator import itemgetter
 import math
 
 main = "https://contenido.bce.fin.ec/home1/estadisticas/bolmensual/IEMensual.jsp"
 
 
-class setDate:
-    def __init__(self, year: str, month: str) -> str:
-        self.year = year
-        self.month = month
-        self._date: str = None
+class SetDate:
+    def __init__(self, year: str, month: str) -> None:
+        self.year, self.month = year, month
+        self.__date: str = ""
         self.get_href_main()
 
     @property
     def date(self):
-        return self._date
+        return self.__date
 
     def get_href_main(self):
-        main_reader = Reader(main, 'option', 'value', False)
-        main_menu = map(main_reader.getHref(), main_reader.getPage())
-
-        self._date = (main_menu.get_href(self.year, self.month))
+        reader = Reader(main, False)
+        href, date = destructure(reader.result)
+        main_menu = Map(href, date)
+        self.__date = (main_menu.get_href(self.year, self.month))
 
 
 class Index:
 
-    def __init__(self, year: str, month: str, **options:int):
-        fecha = setDate(year, month)
+    def __init__(self, year: str, month: str, **options: int):
+        fecha = SetDate(year, month)
         self.options = options
         self.page = fecha.date.replace(' ', '').replace('\n', '')
         self.href = []
@@ -36,9 +36,10 @@ class Index:
 
     def get_href_menu(self):
 
-        menu_reader = Reader((self.page), 'a', 'href', True)
-        self.href = menu_reader.getHref()
-        self.text = menu_reader.getPage()
+        reader = Reader(self.page, True)
+        href, date = destructure(reader.result)
+        self.href = href
+        self.text = date
         menu_menu = page(self.href, self.text)
 
         menu_menu.zipper(menu_menu.selector(
@@ -49,9 +50,9 @@ class Index:
         self.menu = menu_menu.getMenu()
 
     def select(self, indice: str, show: bool = False) -> str:
-        if (show):
+        if show:
             print(self.menu[indice][1])
-        return (self.menu[indice][1])
+        return self.menu[indice][1]
 
     def getPage(self):
         print(self.text)
