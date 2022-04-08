@@ -3,6 +3,9 @@ name: Upload Python Package to PiPy
 on:
   release:
     types: [created]
+  push:
+    branches:
+      - master
 
 permissions:
   contents: read
