@@ -1,3 +1,4 @@
+
 # This workflow will upload a Python Package using Twine when a release is created
 # For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
 
@@ -6,7 +7,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: release to pipy
+name: release package to PiPy
 
 on:
   release:
