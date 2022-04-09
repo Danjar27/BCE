@@ -14,7 +14,7 @@ class Reader:
         self.__find = 'a' if flag else 'option'
         self.__href = []
         self.__page = []
-        url = requests.get(str(base_url))
+        url = requests.get(base_url)
         self.web = Soup(url.content, "html.parser")
         self.main()
 
@@ -28,4 +28,7 @@ class Reader:
 
     @property
     def result(self) -> dict:
-        return {'href': self.__href, 'page': self.__page}
+        return {
+            'href': self.__href,
+            'page': self.__page
+        }
