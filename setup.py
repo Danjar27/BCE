@@ -12,5 +12,5 @@ setup(
     keywords=['Economics', 'Banco Central', 'BCE', 'economía'],
     python_requires=">= 3.8",
     classifiers=[],
-    install_requires=['requests', 'pandas', 'bs4', 'urllib3']
+    install_requires=['requests', 'bs4', 'urllib3']
 )

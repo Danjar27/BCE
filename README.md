@@ -9,9 +9,11 @@ Para comenzar a usarlo deberás instalar el paquete (o clonar el repositorio) e 
 
 ```python
 
-pip install getBCE
+pip
+install
+getBCE
 
-from getBCE.Main import *
+from src.getBCE import *
 ```
 
 El código tiene dos vías para que puedas llegar la información de los indicadores del Banco Central. En el caso de
@@ -24,7 +26,7 @@ usarse la forma
 Dentro de BCE.menu existe la clase _getBCE_,
 
 ```python
-from getBCE.Main import *
+from src.getBCE import *
 
 example = GetBCE(dict)
 ```
@@ -32,7 +34,7 @@ example = GetBCE(dict)
 Los argumentos entregados a esta clase deberán tener la siguiente forma
 
 ```python
-from getBCE.Main import *
+from src.getBCE import *
 
 example = GetBCE(
     year=a:str,
@@ -52,7 +54,7 @@ Los valores de a, b, c deben entregarse en forma de String.
 A modo de ejemplo:
 
 ```python
-from getBCE.Main import *
+from src.getBCE import *
 
 balanza_de_pagos = GetBCE(
     year: '2021',
@@ -76,7 +78,7 @@ En el caso de no conocer los índices de los indicadores, se pueden visualizar c
 setDate()** e **index()**:
 
 ```python
-from getBCE.Main import *
+from src.getBCE import *
 
 fecha = SetDate(
     year='2020',
@@ -128,7 +130,7 @@ cambiarse a True, con lo cual se imprimirá en consola el enlace de descarga.
 De esta manera, se integraría a pandas de la siguiente forma:
 
 ```python
-from getBCE.Main import *
+from src.getBCE import *
 
 fecha = SetDate(
     year='2020',

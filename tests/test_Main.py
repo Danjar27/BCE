@@ -1,5 +1,5 @@
 import unittest
-from getBCE.Main import Search, get_bce
+from src.getBCE.Main import Search, get_bce
 
 
 class Main(unittest.TestCase):

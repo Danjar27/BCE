@@ -1,5 +1,5 @@
-from getBCE.Utils import *
-from getBCE.Reader import *
+from src.getBCE.Utils import *
+from src.getBCE.Reader import *
 
 
 class Search:

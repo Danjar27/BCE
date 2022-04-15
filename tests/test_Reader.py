@@ -1,5 +1,5 @@
 import unittest
-from getBCE.Reader import *
+from src.getBCE.Reader import *
 
 main = "https://contenido.bce.fin.ec/home1/estadisticas/bolmensual/IEMensual.jsp"
 
