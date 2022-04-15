@@ -23,8 +23,6 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        pip install pytest pytest-azurepipelines
-        pip install pytest-cov
-        pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
+        python -m pytest
     - name: Build package
       run: python -m build
