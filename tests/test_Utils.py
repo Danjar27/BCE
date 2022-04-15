@@ -1,5 +1,5 @@
 import unittest
-from src.getBCE.Utils import *
+from getBCE.Utils import *
 
 
 class Utils(unittest.TestCase):
