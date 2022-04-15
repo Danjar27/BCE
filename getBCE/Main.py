@@ -1,4 +1,4 @@
-from getBCE.utils import *
+from getBCE.Utils import *
 from getBCE.Reader import *
 
 
