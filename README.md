@@ -1,9 +1,5 @@
 # getBCE
 
-![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-
-
 This package will help you to get and search different Central Bank Files from the BCE (banco central del ecuador) web
 page
 
@@ -32,7 +28,7 @@ know the index of a report or a file from BCE, you could search it up using **Se
 In the other hand, if you're already familiar with a specific file index (you've worked with it recently, lets say), then
 you could save a couple of seconds just typing the index instead of searching for it.
 
-###Examples
+##Examples
 
 ### Looking for the index 
 ```python
