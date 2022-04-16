@@ -14,7 +14,7 @@ class Search:
         try:
             first_href, first_date = destructure(self.__date_reader.result)
             menu = date_and_href_to_menu(first_href, first_date)
-            self.__date_page_href = get_href_from_menu(menu, year, month).replace(' ', '').replace('\n', '')
+            self.__date_page_href = get_href_from_menu(menu, year, month).replace(' ', '').replace('\n', ' ')
             link_reader = Reader(self.__date_page_href, True)
             second_href, second_date = destructure(link_reader.result)
             menu = date_and_href_to_page_menu(second_href, second_date)
@@ -40,5 +40,5 @@ class Search:
 
 def get_bce(year: str, month: str, index: str, show: bool = False):
     auto_search = Search()
-    auto_search.set_date(year, month, show=show)
+    auto_search.set_date(year, month, show=False)
     return auto_search.select(index, show=show)

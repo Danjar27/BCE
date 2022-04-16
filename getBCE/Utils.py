@@ -1,7 +1,5 @@
 from typing import List
 
-# TODO: Finish adding documentation to functions
-
 
 def destructure(dictionary: dict):
     return [element[1] for element in dictionary.items()]
@@ -9,6 +7,15 @@ def destructure(dictionary: dict):
 
 def set_bounders(any_list: list, bounder: int) -> List[str]:
     return any_list[:len(any_list) - bounder]
+
+
+def capitalize(phrase: str) -> str:
+    separated = phrase.replace(chr(10), ' ').replace(chr(13), ' ').split(' ')
+    corrected = []
+    for element in separated:
+        if element:
+            corrected.append(f'{element[0].upper()}{element[1:].lower()}')
+    return ' '.join(corrected)
 
 
 def get_href_from_menu(menu: dict, year: str, month: str) -> str:
@@ -78,12 +85,13 @@ def selector(menu: dict, index_selector: List[int]) -> list:
     return [menu[z][1] for z in index_selector]
 
 
-def index_filter(date: list, starts_at: int = 0, number_of_elements: int = 5, show=True):
+def index_filter(date: list, starts_at: int = 0, number_of_elements: int = 5, show=True) -> None:
     if show:
         index = create_index_for_list(date)
         rango = number_of_elements if number_of_elements < len(index) else len(index)
         for element in range(rango):
-            print(index[element + starts_at] + ' ' + date[element + starts_at])
+            date_inline = capitalize(date[element + starts_at])
+            print(f'[{index[element + starts_at]}] | {date_inline}')
 
 
 def date_and_href_to_page_menu(href: list, date: list) -> dict:
