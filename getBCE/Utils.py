@@ -10,7 +10,11 @@ def set_bounders(any_list: list, bounder: int) -> List[str]:
 
 
 def capitalize(phrase: str) -> str:
-    separated = phrase.replace(chr(10), ' ').replace(chr(13), ' ').split(' ')
+    separated = phrase \
+        .strip() \
+        .replace(chr(10), '') \
+        .replace(chr(13), '') \
+        .split(' ')
     corrected = []
     for element in separated:
         if element:
@@ -87,17 +91,20 @@ def create_index_for_list(raw_list: list) -> list:
     return ['{0:03}'.format(index) for index, _ in enumerate(raw_list)]
 
 
-def selector(menu: dict, index_selector: List[int]) -> list:
-    return [menu[z][1] for z in index_selector]
+def selector(menu: dict, index_selector: list) -> dict:
+    return {key: menu[key] for key in index_selector}
 
 
-def index_filter(date: list, starts_at: int = 0, number_of_elements: int = 5, show=True) -> None:
-    if show:
-        index = create_index_for_list(date)
-        rango = number_of_elements if number_of_elements < len(index) else len(index)
-        for element in range(rango):
-            date_inline = capitalize(date[element + starts_at])
+def index_filter(date: list, starts_at: int = 0, number_of_elements: int = 5, show=True) -> list:
+    filters = []
+    index = create_index_for_list(date)
+    rango = number_of_elements if number_of_elements < len(index) else len(index)
+    for element in range(rango):
+        date_inline = capitalize(date[int(element) + starts_at])
+        filters.append(index[element + starts_at])
+        if show:
             print(f'[{index[element + starts_at]}] | {date_inline}')
+    return filters
 
 
 def date_and_href_to_page_menu(href: list, date: list) -> dict:
