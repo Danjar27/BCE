@@ -66,7 +66,13 @@ def menu_creator(pre_menu: list) -> dict:
     :param pre_menu: compact_date()
     :return: { year: [(month, href), (month, href), ...], ... }
     """
-    return {item[0]: item[1:] for item in pre_menu}
+    menu = dict()
+    for item in pre_menu:
+        if item[0] in menu:
+            menu[item[0]].append(item[1])
+        else:
+            menu[item[0]] = [item[1]]
+    return menu
 
 
 def date_and_href_to_menu(href: List[str], date: List[str]) -> dict:
