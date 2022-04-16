@@ -10,7 +10,7 @@ class Search:
         self.__date_reader = Reader(self.__main, False)
         self.__page_menu: dict = {}
 
-    def set_date(self, year: str, month: str, **options) -> None:
+    def set_date(self, year: str, month: str, **options) -> dict:
         try:
             first_href, first_date = destructure(self.__date_reader.result)
             menu = date_and_href_to_menu(first_href, first_date)
@@ -18,13 +18,14 @@ class Search:
             link_reader = Reader(self.__date_page_href, True)
             second_href, second_date = destructure(link_reader.result)
             menu = date_and_href_to_page_menu(second_href, second_date)
-            index_filter(
+            filters = index_filter(
                 second_date,
                 options['starts_at'] if 'starts_at' in options else 0,
                 options['number_of_elements'] if 'number_of_elements' in options else 5,
                 options['show'] if 'show' in options else True
             )
             self.__page_menu = menu
+            return selector(menu, filters)
         except AttributeError:
             print(AttributeError)
 
