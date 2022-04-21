@@ -16,9 +16,9 @@ from getBCE import *
 ## TODOs
 
 - [x] Refactor code into modules
-- [ ] Create a flask REST API with Flask
-- [ ] Deploy API to Heroku
-- [ ] Connect this API to econTools (a personal project)
+- [x] Create a flask REST API with Flask
+- [x] Deploy API to Heroku
+- [x] Connect this API to econTools (a personal project)
 
 ## Usage
 
@@ -28,7 +28,7 @@ know the index of a report or a file from BCE, you could search it up using **Se
 In the other hand, if you're already familiar with a specific file index (you've worked with it recently, lets say), then
 you could save a couple of seconds just typing the index instead of searching for it.
 
-##Examples
+## Examples
 
 ### Looking for the index 
 ```python
@@ -58,3 +58,25 @@ from getBCE import get_bce
 file = get_bce('2020', 'enero', '005', show=True)
 # Returns and prints selected file link
 ```
+
+---
+
+## API Endpoints
+
+You can use the API with [this link](https://getbce.herokuapp.com/)
+
+The API has 3 endpoinst:
+ - /
+ - /search/<year>/<month>
+ - /search_all
+
+** / ** gets 3 optional parameters, which are year, month and index
+** /search<year>/<month> ** has 3 optional parameters, as well: starts_at, n_elements and select
+and, finally ** /search_all ** receives 2 parameteres: year and month
+
+### Examples
+ - https://getbce.herokuapp.com/?year=2020&month=enero&index=005
+ - https://getbce.herokuapp.com/search/2019/marzo?starts_at=5&n_elements=15
+ - https://getbce.herokuapp.com/search/2019/marzo?starts_at=5&n_elements=15&select=006&select=015&select=008
+ - https://getbce.herokuapp.com/search/2019/marzo?select=015&select=008&select=006 -
+ - https://getbce.herokuapp.com/search_all?year=2021&month=julio
