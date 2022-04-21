@@ -67,12 +67,12 @@ You can use the API with [this link](https://getbce.herokuapp.com/)
 
 The API has 3 endpoinst:
  - /
- - /search/<year>/<month>
+ - /search/*year*/*month*
  - /search_all
 
-** / ** gets 3 optional parameters, which are year, month and index
-** /search<year>/<month> ** has 3 optional parameters, as well: starts_at, n_elements and select
-and, finally ** /search_all ** receives 2 parameteres: year and month
+**/** gets 3 optional parameters, which are year, month and index
+**/search/*year*/*month*** has 3 optional parameters, as well: starts_at, n_elements and select
+and, finally **/search_all** receives 2 parameteres: year and month
 
 ### Examples
  - https://getbce.herokuapp.com/?year=2020&month=enero&index=005
