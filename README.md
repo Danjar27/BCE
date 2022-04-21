@@ -71,7 +71,9 @@ The API has 3 endpoinst:
  - /search_all
 
 **/** gets 3 optional parameters, which are year, month and index
+
 **/search/*year*/*month*** has 3 optional parameters, as well: starts_at, n_elements and select
+
 and, finally **/search_all** receives 2 parameteres: year and month
 
 ### Examples
